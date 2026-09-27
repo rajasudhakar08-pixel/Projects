@@ -76,8 +76,38 @@ def transfer():
 #Distplaying transaction history
 def transaction_history():
     print(histories[SNo])
-    
-create_account()
+
+print('Welcome to the bank')
+account = int(input('Do you already have an account?\nType 1 if you need a new account and anything else if you dont'))
+
+if account == 1:
+    create_account()
+
+print('Now log in to your account')
 SNo = login()
-check_balance()
-withdrawal()
+
+print('What do you want to do now?\nChoose one of the options below')
+print('1 ==> Withdraw some money from the back')
+print('2 ==> Deposit some money into the bank')
+print('3 ==> Check your balance')
+print('4 ==> Transfer money to another person')
+print('5 ==> See your transaction history')
+choice = 0
+
+while choice != 10:
+    choice = int(input('Enter your choice: Type 10 if you are done'))
+    if choice == 1:
+        withdrawal()
+    elif choice == 2:
+        deposit()
+    elif choice == 3:
+        check_balance()
+    elif choice == 4:
+        transfer()
+    elif choice == 5:
+        transaction_history()
+    else:
+        print('Invalid choice, try again')
+
+print('Thank you for coming here, please come again!')
+
